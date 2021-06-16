@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0 20%;
+    width: auto;
+    background-color: lightgray;
+}
+
+table td {
+    background-color: white;
+}
+a{
+    float: right;
+    margin-right: 5px;
+}

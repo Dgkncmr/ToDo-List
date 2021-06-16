@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+
+<body>
+    <div id="app">
+        <button class="btn btn-danger float-right" @click="gorevYeni">Yeni Görev</button>
+        <div class="modal fade" tabindex="-1" role="dialog" id="gorevModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Yapılacak</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form @submit.prevent="true">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">İş</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" v-model="aktifGorev.is"
+                                        placeholder="Burayı doldurunuz...">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" @click="gorevKaydet">Kaydet</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div>
+            <table class="table table-bordered table-hover">
+                <thead class="bg-success text-white">
+                    <th>Yapılacak İşler
+                <p class="text-black" style="font-size: larger;">Aktif İşler ({{gorevler.length}} İş)</p>
+
+                    </th>
+                </thead>
+                <tbody v-for="gorev in gorevler">
+                    <td>{{gorev.is}} <a href="javascript:" @click="gorevSil" class="btn btn-sm btn-danger">
+                        <i class="fa fa-trash"></i>
+                    </a></td>
+                </tbody>
+            </table>
+            <table class="table table-bordered table-hover">
+                <thead class="bg-warning text-white">
+                    <th>Yapılan İşler</th>
+                </thead>
+                <tbody v-for="gorev in gorevler">
+                </tbody>
+            </table>
+            <table class="table table-bordered table-hover">
+                <thead class="bg-info text-white">
+                    <th>Biten İşler</th>
+                </thead>
+                <tbody v-for="gorev in gorevler">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="assets/js/vue.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
